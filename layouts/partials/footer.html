@@ -106,3 +106,4 @@
 <script src="{{ $formhandler.Permalink }}"></script>
 {{ $script := resources.Get "js/script.js" | minify }}
 <script src="{{ $script.Permalink }}"></script>
+<script type="module" src="{{ "js/index.js" | absURL }}"></script>
