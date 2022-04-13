@@ -5,7 +5,7 @@
 		</svg>
 	</div>
 	<div class="container">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-lg-12">
 				<div class="footer__cta">
 					<div class="shape-1">
@@ -32,13 +32,16 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="row footer__widget">
 			<div class="col-lg-4">
 				<div class="footer__widget_logo mb-5">
-					<img src="{{ .Site.Params.footerLogo | absURL }}" alt="widget-logo">
+					<img src="{{ .Site.Params.footerLogo | absURL }}" alt="widget-logo" style="
+					height: 50px;
+				">
 				</div>
 			</div>
+			{{ if .Site.Menus.sitemap }}
 			<div class="col-lg-4">
 				<div class="text-light footer__widget_sitemap mb-5">
 					<h4 class="base-font">Sitemap</h4>
@@ -50,6 +53,9 @@
 					</ul>
 				</div>
 			</div>
+			{{else}}
+			<div class="col-lg-4"></div>
+			{{end}}
 			<div class="col-lg-4">
 				<div class="text-light footer__widget_address mb-5">
 					<h4 class="base-font">Address</h4>
@@ -69,7 +75,7 @@
 		<div class="row footer__footer">
 			<div class="col-lg-6">
 				<div class="footer__footer_copy text-light">
-					<p>{{ .Site.Params.copyright }}</p>
+					<p>{{ .Site.Params.copyright }} 2015 - <script>document.write(new  Date().getFullYear())</script></p>
 				</div>
 			</div>
 			<div class="col-lg-6">
