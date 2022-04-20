@@ -41,21 +41,25 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h3 class="breadCrumb__title text-capitalize">{{ .Title }}</h3>
+          <h3 class="breadCrumb__title">{{ .Title }}</h3>
           <nav aria-label="breadcrumb" class="d-flex justify-content-center">
             <ol class="breadcrumb align-items-center">
-              <li>Showing all posts with the tag "{{ .Title }}"</li>
+              <li class="breadcrumb-item">
+                <a href="{{ .Site.BaseURL }}">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{ .Title }}
+              </li>
             </ol>
           </nav>
         </div>
       </div>
     </div>
   </header>
-
   <section class="section blog-page">
     <div class="container">
       <div class="row">
-        {{ range .Paginator.Pages }}
+        {{ range .Pages }}
           <div class="col-lg-4">
             <div class="blog-page__item">
               <div class="blog-page__item-thumb">
@@ -71,11 +75,12 @@
                 <h5 class="mb-0">
                   <a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
                 </h5>
+                Total Blogs:
+                {{ len .Pages }}
               </div>
             </div>
           </div>
         {{ end }}
-        {{ partial "pagination" . }}
       </div>
     </div>
   </section>
