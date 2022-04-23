@@ -164,22 +164,12 @@
             <h3>Contact Form</h3>
           </div>
           <div class="contact-form-input">
-            <form
-              id="contact-form"
-              action="{{ .Site.Params.formspreeURL }}"
-              method="POST"
-            >
+            <form id="contact-form" onsubmit="sender()">
               <div class="form-row">
-                <input type="hidden" name="_subject" value="New submission!" />
-                <input type="text" name="_honey" style="display:none" />
-                <input type="hidden" name="_captcha" value="true" />
-                <input
-                  type="hidden"
-                  name="_autoresponse"
-                  value="Thank you for contacting me. I will get back to you soon."
-                />
+                <input type="text" id="tame" name="tame" style="display:none" />
                 <div class="form-group col-md-6 pr-3">
                   <input
+                    id="name"
                     type="text"
                     class="form-control"
                     name="Name"
@@ -189,6 +179,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <input
+                    id="email"
                     type="email"
                     class="form-control"
                     name="email"
